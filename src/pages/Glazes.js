@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
+import GlazesComponent from "../components/Glazes.js"
 
 const Glazes = () => {
-    useEffect(() => {
-            const getRecipes = async() => {
-                try {
-                    return (await fetch("/recipes.json")).json();
-                } catch(error) {
-                    console.log(error);
-                }
-            };
-
+    /*useEffect(() => {
             const getRecipeDiv = (recipe) => {
                 const placcard = document.createElement("div");
                 placcard.classList.add("placcard");
@@ -108,10 +101,11 @@ const Glazes = () => {
             window.addEventListener('resize', updateGlazeHeight);
         }, 
         []
-    );
+    );*/
     return (
         <div id="remaining-content" class="remaining-content columns center-columns-horizontal">
             <div id="remaining-content-child" class="columns-all center-columns-horizontal  wrap">
+                <GlazesComponent />
             </div>
         </div>
     );

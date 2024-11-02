@@ -1,0 +1,38 @@
+#mobile-main-nav { 
+    margin-left: 0px; 
+    position: absolute; 
+    width: 100%; 
+    background-color: var(--tertiary-color); 
+    left: 0px;
+} 
+
+#mobile-main-nav ul  { 
+    padding: 0px; 
+    margin: 0px; 
+    margin-top: 10px; 
+    list-style: none;
+} 
+
+#mobile-main-nav li  { 
+    padding-left: 0px; 
+    margin-top: 1px; 
+    height: var(--mobile-header-heights); 
+    background-color: var(--secondary-color); 
+    width: 100%; 
+    display: table;
+} 
+
+#mobile-main-nav li:hover { 
+    background-color: var(--primary-color);
+} 
+
+#mobile-main-nav a  { 
+    text-decoration: none; 
+    padding-left: 10px; 
+    vertical-align: middle; 
+    display: table-cell;
+} 
+
+#mobile-main-nav a h2  { 
+    color: var(--butiary-color);
+} 

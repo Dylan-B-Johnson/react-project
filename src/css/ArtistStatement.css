@@ -1,0 +1,19 @@
+#about-art { 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    width: 800px; 
+    height: auto;
+} 
+
+#artist-statement h3  { 
+    font-size: 24px;
+} 
+
+#artist-statement p  { 
+    margin-top: 70px;
+} 
+
+#artist-statement p, em, blockquote  { 
+    font-size: 18px; 
+    line-height: 1.25;
+} 

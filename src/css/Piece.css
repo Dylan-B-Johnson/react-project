@@ -1,0 +1,13 @@
+.gallery-info-mobile { 
+    margin-top: 5px !important;
+} 
+
+@media only screen and (min-width: 687px){ 
+  .gallery-info-mobile { 
+    display: none;
+  } 
+
+  .gallery-placcard { 
+    z-index: 101;
+  } 
+}     

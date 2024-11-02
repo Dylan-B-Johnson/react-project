@@ -1,0 +1,31 @@
+#contact-me input  { 
+    width: 100%;
+} 
+
+#contact-me textarea { 
+    width: 100%;
+} 
+
+#contact-me label  { 
+    font-size: 18px;
+} 
+
+#contact-me textarea  { 
+    resize: none;
+} 
+
+#contact-me button  { 
+    font-size: 18px;
+    color: var(--background); 
+    background-color: var(--septiary-color); 
+    border-radius: 5px; 
+    border-style: solid; 
+    border-width: 0px;
+} 
+
+@media only screen and (min-width: 687px) { 
+  #contact-me input, textarea { 
+    max-width: 275px; 
+    width: 97%;
+  } 
+}

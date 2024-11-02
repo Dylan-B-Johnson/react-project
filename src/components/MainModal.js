@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import "../css/MainModal.css"
 
 const basename = (aString) => {
    return aString.split('/').reverse()[0];
@@ -20,7 +21,7 @@ const MainModal = ({showModal, piece, setShowModal}) => {
                             <h2>{piece.year}</h2>
                         </div>
                         <div>
-                            <img src={piece.highResPNG ? "./images/work/high-res/" + basename(piece.image) + ".png" : "./images/work/high-res/" + basename(piece.image) + ".jpg"} className="contain"/>
+                            <img src={piece.highResPNG ? "./images/work/high-res/" + basename(piece.image).slice(0, -3) + "png" : "./images/work/high-res/" + basename(piece.image).slice(0, -3) + "jpg"} className="contain"/>
                             <p className="gallery-info">Slip cast with Cone {piece.cone}. {piece.hangs ? "Hangs on wall." : "Sits on pedestal."} </p>
                         </div>
                     </section>
