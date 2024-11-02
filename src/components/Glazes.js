@@ -4,9 +4,7 @@ import Glaze from "./Glaze.js";
 import { createRoot } from 'react-dom/client';
 
 const Glazes = () => {
-    // We cannot use usestate here because there is no way to perform a function after the 
-    // state has updated (because we need to render all glazes, find all their heights, and
-    // then set all their heights to be the max)
+    const [glazes, setGlazes] = useState([]);
 
     let updatedHeight = false;
 
@@ -33,21 +31,7 @@ const Glazes = () => {
     useEffect(() => {
         (async() => {
             const response = await axios.get("./recipes.json");
-            const glazes = []
-            response.data.forEach((glaze) => {
-                glazes.push(
-                    <Glaze
-                        key={glaze._id}
-                        image={glaze.image}
-                        recipe={glaze.recipe}
-                        name={glaze.name}
-                        link={glaze.link}
-                        credit={glaze.credit}
-                        cone={glaze.cone}
-                    />
-                );
-            });
-            createRoot(document.getElementById("remaining-content-child")).render(glazes);
+            setGlazes(response.data);
             const updateHeight = setInterval(() => {
                 if (updateGlazeHeight())
                     clearInterval(updateHeight);
@@ -57,8 +41,23 @@ const Glazes = () => {
     },[]);
 
     return (
-        <></>
+        <>
+            {glazes.map((glaze) => (
+                    <Glaze
+                        key={glaze._id}
+                        image={glaze.image}
+                        recipe={glaze.recipe}
+                        name={glaze.name}
+                        link={glaze.link}
+                        credit={glaze.credit}
+                        cone={glaze.cone}
+                    />
+                ))
+            }
+        </>
     );
 };
 
 export default Glazes;
+
+
