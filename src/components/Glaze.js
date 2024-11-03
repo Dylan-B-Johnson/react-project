@@ -7,7 +7,7 @@ const Glaze = ({_id, image, recipe, name, link, credit, cone}) => {
       <p>{name}</p>
       <div className="mobile-div columns-mobile">
         <div className="one img-div">
-          <img src={image} className="one contain"/>
+          <img src={image} className="one contain" alt={name}/>
         </div>
         <div className="one table-div">
           <p className="cone">Cone: {cone}</p>

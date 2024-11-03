@@ -25,7 +25,8 @@
 
 @media only screen and (min-width: 687px) { 
   #contact-me input, textarea { 
-    max-width: 275px; 
+    max-width: 340px; 
+    margin-right: 10px;
     width: 97%;
   } 
 }
