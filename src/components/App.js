@@ -31,7 +31,7 @@ const App = () => {
       <div id="all-content">
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Layout />}>
+                <Route path="/react-project" element={<Layout />}>
                   <Route index element={<About />}/>
                   <Route path="about" element={<About />}/>
                   <Route path="edit-about" element={<EditAbout />}/>
@@ -49,6 +49,7 @@ const App = () => {
                   <Route path="edit-glazes.html" element={<EditGlazes />}/>
                   <Route path="edit-users.html" element={<EditUsers/>}/>
                 </Route>
+                <Route path="\*" element={<About />}/>
               </Routes>
             </BrowserRouter>
         </div>

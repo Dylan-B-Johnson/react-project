@@ -7,7 +7,7 @@ const Header = ({hamburgerOnClick}) => {
             <header id="main-header">
                 <div id="header-child" className="columns-all">
                     <div className="fit-content">
-                        <a href="index.html" className="relative"><img id="main-img" src="/images/sally-brogden.png"/></a>
+                        <a href="index.html" className="relative"><img id="main-img" src="images/sally-brogden.png"/></a>
                     </div>
                     <div className="fill-width">
                         <section className="relative">
