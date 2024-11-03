@@ -1,4 +1,5 @@
 import {useState, useEffect } from "react";
+import "../css/Glaze.css";
 
 const Glaze = ({_id, image, recipe, name, link, credit, cone}) => {
   return (

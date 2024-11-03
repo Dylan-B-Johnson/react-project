@@ -1,0 +1,42 @@
+.delete-button-edit-users { 
+    margin-right: 0px !important; 
+    margin-left: 0px !important;
+}  
+
+#users-save-changes { 
+    background-color: var(--septiary-color); 
+    width: fit-content; 
+    height: fit-content; 
+    border-radius: 5px;
+} 
+
+#edit-user-table-div { 
+    width: fit-content; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 50px;
+} 
+
+#users-save-changes a  { 
+    text-decoration: none;
+} 
+
+#users-save-changes h3  { 
+    padding: 5px; 
+    color: var(--background);
+} 
+
+@media only screen and (min-width: 513px){ 
+  #edit-user-table-div { 
+    width: fit-content; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 50px;
+  }     
+}
+
+@media only screen and (min-width: 687px){ 
+  .save-changes-users { 
+    margin-top: 80px;
+  } 
+}     

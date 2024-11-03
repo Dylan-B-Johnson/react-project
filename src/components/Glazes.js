@@ -1,7 +1,6 @@
 import {useState, useEffect } from "react";
 import axios from "axios";
 import Glaze from "./Glaze.js";
-import { createRoot } from 'react-dom/client';
 
 const Glazes = () => {
     const [glazes, setGlazes] = useState([]);

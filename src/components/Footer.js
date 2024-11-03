@@ -1,6 +1,6 @@
 import "../css/Footer.css";
 
-const Header = () => {
+const Footer = () => {
     return (
         <footer id="main-footer">
             <p>&copy;Sally Brogden</p>
@@ -8,4 +8,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Footer;

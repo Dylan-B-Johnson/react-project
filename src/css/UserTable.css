@@ -1,0 +1,35 @@
+#edit-user-table-div th  { 
+    padding-right: 10px;
+} 
+
+#edit-user-table-div tr > :nth-child(2)  { 
+    display: none;
+} 
+
+#edit-user-table-div td  { 
+    padding-right: 10px; 
+    padding-top: 0px; 
+    padding-bottom: 0px; 
+    margin-top: 0px; 
+    margin-bottom: 0px;
+} 
+
+@media only screen and (min-width: 380px) { 
+  #edit-user-table-div tr > :nth-child(2)  { 
+    display: unset;
+  } 
+}     
+
+@media only screen and (min-width: 513px) { 
+  #edit-user-table-div td  { 
+    padding-right: 50px; 
+    padding-top: 0px; 
+    padding-bottom: 0px; 
+    margin-top: 0px; 
+    margin-bottom: 0px;
+  } 
+
+  #edit-user-table-div th  { 
+    padding-right: 50px;
+  } 
+}
