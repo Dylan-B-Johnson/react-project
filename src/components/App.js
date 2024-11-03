@@ -1,5 +1,5 @@
 import {useState, useEffect } from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Layout from "../pages/Layout";
 import About from "../pages/About";
 import EditAbout from "../pages/EditAbout";
@@ -29,10 +29,10 @@ const App = () => {
         setShowModal={setShowModal}
       />
       <div id="all-content">
-            <BrowserRouter>
+            <BrowserRouter basename={'/react-project'}>
               <Routes>
-                <Route path="/react-project" element={<Layout />}>
-                  <Route index element={<About />}/>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Navigate to="/index.html"/>}/>
                   <Route path="about" element={<About />}/>
                   <Route path="edit-about" element={<EditAbout />}/>
                   <Route path="edit-about.html" element={<EditAbout />}/>
@@ -49,7 +49,6 @@ const App = () => {
                   <Route path="edit-glazes.html" element={<EditGlazes />}/>
                   <Route path="edit-users.html" element={<EditUsers/>}/>
                 </Route>
-                <Route path="\*" element={<About />}/>
               </Routes>
             </BrowserRouter>
         </div>
