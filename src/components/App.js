@@ -1,5 +1,5 @@
 import {useState, useEffect } from "react";
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import {HashRouter, BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Layout from "../pages/Layout";
 import About from "../pages/About";
 import EditAbout from "../pages/EditAbout";
@@ -29,7 +29,7 @@ const App = () => {
         setShowModal={setShowModal}
       />
       <div id="all-content">
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <HashRouter basename={"/"}>
               <Routes>
                 <Route path="/" element={<Layout />}>
                   <Route index element={<Navigate to="about"/>}/>
@@ -42,7 +42,7 @@ const App = () => {
                   <Route path="edit-users" element={<EditUsers/>}/>
                 </Route>
               </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </div>
       </>
   );
