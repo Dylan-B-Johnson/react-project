@@ -29,7 +29,7 @@ const App = () => {
         setShowModal={setShowModal}
       />
       <div id="all-content">
-            <BrowserRouter basename={'/react-project'}>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
               <Routes>
                 <Route path="/" element={<Layout />}>
                   <Route index element={<Navigate to="about"/>}/>
