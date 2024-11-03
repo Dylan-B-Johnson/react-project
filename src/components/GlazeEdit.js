@@ -3,7 +3,7 @@ import "../css/Glaze.css";
 
 const GlazeEdit = ({_id, image, recipe, name, link, credit, cone}) => {
   return (
-    <div className="placcard placcard-glazes">
+    <div className="placcard placcard-glazes placcard-glazes-edit">
       <div className="mobile-div columns-mobile">
         <div className="one img-div">
           <img src={image} className="one contain"/>
