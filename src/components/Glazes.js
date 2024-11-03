@@ -32,8 +32,9 @@ const Glazes = () => {
             const response = await axios.get("./recipes.json");
             setGlazes(response.data);
             const updateHeight = setInterval(() => {
-                if (updateGlazeHeight())
-                    clearInterval(updateHeight);
+            // poll until page has updated based on the updated state
+            if (updateGlazeHeight())
+                clearInterval(updateHeight);
             }, 10);
         })();
         window.addEventListener('resize', updateGlazeHeight);
