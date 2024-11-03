@@ -1,0 +1,80 @@
+#logout p  { 
+    position: relative; 
+    left: -38px;
+} 
+
+#login-div-mobile { 
+    position: absolute; 
+    left: calc(100% - 152px); 
+    top: -13px;
+} 
+
+#person-icon { 
+    top: -1px; 
+    left: -2px;
+} 
+
+#login-div { 
+    position: absolute; 
+    width: fit-content; 
+    top: var(--top-header-padding); 
+    left: calc(100% - (100vw - var(--all-content-width)) / 2 - 50px);
+} 
+
+#logout-mobile { 
+    text-decoration: none;
+} 
+
+#login-div-div { 
+    left: -30px;
+} 
+
+#logout { 
+    top: -30px; 
+    left: 17px;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 425px) {
+  #login-div-mobile { 
+    top: -40px;
+  } 
+}
+
+@media only screen and (min-width: 687px) {
+  #login-div { 
+    position: absolute; 
+    width: fit-content; 
+    top: -68px; 
+    left: calc(100% - 121px);
+  }
+
+  #person-icon { 
+    height: 15px;
+  } 
+
+  #login-div div  { 
+    width: fit-content; 
+    left: 0px;
+  } 
+
+  #login-div a  { 
+    width: fit-content;
+  } 
+
+  #logout p  { 
+    position: static;
+  } 
+
+  #login-div p  { 
+    width: fit-content;
+  } 
+}
+
+@media only screen and (min-width: 828px){ 
+  #login-div { 
+    position: absolute; 
+    width: fit-content; 
+    left: calc(100% - (100vw - var(--all-content-width)) / 2 - 50px);
+  } 
+}     
