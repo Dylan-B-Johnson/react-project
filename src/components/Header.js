@@ -7,7 +7,7 @@ const Header = ({hamburgerOnClick}) => {
             <header id="main-header">
                 <div id="header-child" className="columns-all">
                     <div className="fit-content">
-                        <a href="index.html" className="relative"><img id="main-img" src="images/sally-brogden.png"/></a>
+                        <a href="about" className="relative"><img id="main-img" src="images/sally-brogden.png"/></a>
                     </div>
                     <div className="fill-width">
                         <section className="relative">
@@ -17,7 +17,7 @@ const Header = ({hamburgerOnClick}) => {
                                 <div></div>
                             </div>
                             <Login />
-                            <a href="index.html" id="main-title-a" className="relative"><h1 id="main-title">Sally Brogden</h1></a>
+                            <a href="about" id="main-title-a" className="relative"><h1 id="main-title">Sally Brogden</h1></a>
                         </section>
                         <MainNav />
                     </div>  
