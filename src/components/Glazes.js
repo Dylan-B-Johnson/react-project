@@ -1,4 +1,5 @@
 import {useState, useEffect } from "react";
+import {backend, api} from "./API";
 import axios from "axios";
 import Glaze from "./Glaze.js";
 
@@ -29,7 +30,7 @@ const Glazes = () => {
 
     useEffect(() => {
         (async() => {
-            const response = await axios.get("./recipes.json");
+            const response = await axios.get(api + "/recipes");
             setGlazes(response.data);
             const updateHeight = setInterval(() => {
             // poll until page has updated based on the updated state
@@ -45,7 +46,7 @@ const Glazes = () => {
             {glazes.map((glaze) => (
                     <Glaze
                         key={glaze._id}
-                        image={glaze.image}
+                        image={backend + glaze.image.substring(1)}
                         recipe={glaze.recipe}
                         name={glaze.name}
                         link={glaze.link}

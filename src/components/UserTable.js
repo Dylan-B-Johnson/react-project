@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import {backend, api} from "./API";
 import axios from "axios";
 import UserTableRow from "./UserTableRow.js";
 import "../css/UserTable.css";
@@ -8,7 +9,7 @@ const UserTable = () => {
 
     useEffect(() => {
         (async() => {
-            const response = await axios.get("./users.json");
+            const response = await axios.get(api + "/users");
             setUsers(response.data);
         })();
     },[]);

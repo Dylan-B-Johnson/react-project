@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {backend, api} from "./API";
 import EditWork from "../components/EditWork.js";
 import axios from "axios";
 const EditWorks = () => {
@@ -6,7 +7,7 @@ const EditWorks = () => {
 
     useEffect(() => {
         (async() => {
-            const response = await axios.get("./work.json");
+            const response = await axios.get(api + "/work");
             setEditWorks(response.data);
             console.log(response.data);
         })();
@@ -18,7 +19,7 @@ const EditWorks = () => {
             <EditWork 
                 key={work.image}
                 year={work.year}
-                image={work.image}
+                image={backend + work.image.substring(1)}
             />
         ))}
       </>
