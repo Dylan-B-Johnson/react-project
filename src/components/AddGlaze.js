@@ -44,10 +44,7 @@ const AddGlaze = ({setShow, showNewRecipe, getMaxIdx}) => {
     fixedJSON.link = fixedJSON.link == null ? "" : fixedJSON.link;
     fixedJSON.image = URL.createObjectURL(inputs.image);
     fixedJSON._id = getMaxIdx() + 1;
-    showNewRecipe(fixedJSON);
-    setShow(false);
-    return;
-    const response = await fetch("http://localhost:3001/api/house_plans/",{
+    const response = await fetch(api + "/recipes" ,{
       method:"POST",
       body:formData
     });
@@ -80,6 +77,8 @@ const AddGlaze = ({setShow, showNewRecipe, getMaxIdx}) => {
 
   const addIngredient = () => {
     const lastNum = materials[materials.length - 1];
+    if (lastNum == 19)
+      return;
     setMaterials(materials => [...materials, lastNum + 1]);
     inputs.materials.push("");
     inputs.amounts.push("");
@@ -87,7 +86,7 @@ const AddGlaze = ({setShow, showNewRecipe, getMaxIdx}) => {
 
   return (
     <div>
-      <form onSubmit={addToServer}>
+      <form id="add-glaze-form" onSubmit={addToServer}>
         <div>
           <label htmlFor="recipe-add-name">Name:</label>
         </div>
@@ -129,6 +128,7 @@ const AddGlaze = ({setShow, showNewRecipe, getMaxIdx}) => {
         <div>
           <button type="submit">Upload Recipe</button>
         </div>
+        <p>{result}</p>
       </form>
     </div>
   );

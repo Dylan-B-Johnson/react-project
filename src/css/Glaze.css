@@ -1,3 +1,7 @@
+.no-text-decor {
+    text-decoration: none !important;
+}
+
 .placcard-glazes { 
     width: 100%; 
     height: fit-content;

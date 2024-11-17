@@ -25,7 +25,7 @@ const Glaze = ({_id, image, recipe, name, link, credit, cone}) => {
               ))}
             </tbody>
           </table>
-          <a target="_blank" href={link}>Alfred Grinding Room</a>
+          {credit != "" && <a target="_blank" className={link == "" ? "no-text-decor" : ""} href={link == "" ? undefined : link}>{credit}</a>}
           <div className="download-recipe text-align-left delete-button delete-button-edit-users">
             <a href="#"><h3>Download</h3></a>
           </div>

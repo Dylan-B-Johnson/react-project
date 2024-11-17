@@ -1,3 +1,22 @@
+#add-glaze-form div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#add-glaze-form input {
+    width: 98%;
+}
+
+#add-glaze-form p, label, input, button {
+    font-size: 18px;
+    color: var(--most-text);
+}
+
+#add-glaze-form input::file-selector-button {
+    color: var(--most-text);
+}
+
+
 .edit-glaze-button { 
     display: block; 
     width: fit-content; 
