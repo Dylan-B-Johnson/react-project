@@ -1,0 +1,29 @@
+.edit-glaze-button { 
+    display: block; 
+    width: fit-content; 
+    height: fit-content; 
+    text-decoration: none;
+} 
+
+.edit-glaze-button a { 
+    text-decoration: none;
+}
+
+.edit-glaze-button h3 { 
+    text-decoration: none;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    display: block; 
+    height: fit-content; 
+    color: var(--background); 
+    background-color: var(--secondary-color); 
+    border-radius: 5px; 
+    padding: 5px;
+} 
+
+#recipe-add-img-prev {
+    height: 210px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

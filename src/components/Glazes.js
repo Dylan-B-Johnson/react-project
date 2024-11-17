@@ -46,7 +46,7 @@ const Glazes = () => {
             {glazes.map((glaze) => (
                     <Glaze
                         key={glaze._id}
-                        image={backend + glaze.image.substring(1)}
+                        image={glaze.image.substr(0, 4) == "blob" ? glaze.image : backend + glaze.image.substring(1)}
                         recipe={glaze.recipe}
                         name={glaze.name}
                         link={glaze.link}
