@@ -4,7 +4,7 @@ import "../css/EditGlazes.css";
 import "../css/AddGlaze.css";
 import React, {useState} from "react";
 
-const EditGlazes = () => {
+const EditGlazes = ({setOnYes, setShowModal}) => {
     const [showAddGlaze, setShowAddGlaze] = useState(false);
     const [glazeEdits, setGlazeEdits] = useState([]);
     const getMaxIdx = () => {
@@ -26,7 +26,7 @@ const EditGlazes = () => {
                 {showAddGlaze && <AddGlaze setShow={setShowAddGlaze} getMaxIdx={getMaxIdx} showNewRecipe={showNewRecipe}/>}
             </div>
             <div id="remaining-content-child" className="columns-all three center-columns-horizontal  wrap">
-                <GlazeEdits glazeEdits={glazeEdits} setGlazeEdits={setGlazeEdits} />
+                <GlazeEdits glazeEdits={glazeEdits} setShowModal={setShowModal} setGlazeEdits={setGlazeEdits} setOnYes={setOnYes}/>
             </div>
         </div>
     );

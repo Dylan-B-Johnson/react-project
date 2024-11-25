@@ -11,13 +11,15 @@ import EditGallery from "../pages/EditGallery";
 import MainModal from "./MainModal.js";
 
 const App = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState("");
   const [piece, setPiece] = useState(null);
+  const [onYes, setOnYes] = useState(() => {
+  });
 
   const pieceOnClick = (piece) => {
     if (window.innerWidth > 687) {
         setPiece(piece);
-        setShowModal(true);
+        setShowModal("gallery");
     }
    };
 
@@ -27,6 +29,7 @@ const App = () => {
         piece={piece} 
         showModal={showModal}
         setShowModal={setShowModal}
+        onYes={onYes}
       />
       <div id="all-content">
             <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -38,7 +41,7 @@ const App = () => {
                   <Route path="gallery" element={<Gallery pieceOnClick={pieceOnClick}/>}/>
                   <Route path="glazes" element={<Glazes />}/>
                   <Route path="edit-gallery" element={<EditGallery />}/>
-                  <Route path="edit-glazes" element={<EditGlazes />}/>
+                  <Route path="edit-glazes" element={<EditGlazes setOnYes={setOnYes} setShowModal={setShowModal}/>}/>
                   <Route path="edit-users" element={<EditUsers/>}/>
                 </Route>
               </Routes>

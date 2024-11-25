@@ -1,7 +1,25 @@
 import {useState, useEffect } from "react";
+import {backend, api} from "./API";
 import "../css/Glaze.css";
 
-const GlazeEdit = ({_id, image, recipe, name, link, credit, cone}) => {
+const GlazeEdit = ({_id, image, recipe, name, link, credit, cone, setOnYes, setShowModal}) => {
+  const deleteString = `delete${_id}`;
+
+  const deleteRecipe = async(id) => {
+    const response = await fetch(api + `/recipes/${id}`, {
+      method: "DELETE"
+    });
+    if (response.status === 200) {
+      return true;
+    }
+    return false;
+  };
+
+  const onDelete = async(deleteStringL) => {
+    setOnYes(() => (id) => {deleteRecipe(id);});
+    setShowModal(deleteStringL);
+  };
+
   return (
     <div className="placcard placcard-glazes placcard-glazes-edit">
       <div className="mobile-div columns-mobile">
@@ -10,7 +28,7 @@ const GlazeEdit = ({_id, image, recipe, name, link, credit, cone}) => {
         </div>
         <div className="one table-div">
           <div className="delete-button">
-            <a href="#"><h3>Delete</h3></a>
+            <a href="#" onClick={() => {onDelete(deleteString);}}><h3>Delete</h3></a>
           </div>
         </div>
       </div>
