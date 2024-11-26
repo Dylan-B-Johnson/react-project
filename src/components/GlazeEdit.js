@@ -2,7 +2,8 @@ import {useState, useEffect } from "react";
 import {backend, api} from "./API";
 import "../css/Glaze.css";
 
-const GlazeEdit = ({_id, image, recipe, name, link, credit, cone, setOnYes, setShowModal}) => {
+const GlazeEdit = ({_id, image, recipe, name, link, credit, cone, 
+    setOnYes, setShowModal, setGlazeEdits, glazeEdits}) => {
   const deleteString = `delete${_id}`;
 
   const deleteRecipe = async(id) => {
@@ -10,13 +11,14 @@ const GlazeEdit = ({_id, image, recipe, name, link, credit, cone, setOnYes, setS
       method: "DELETE"
     });
     if (response.status === 200) {
+      setGlazeEdits(glazeEdits.filter((i) => i._id != id));
       return true;
     }
     return false;
   };
 
   const onDelete = async(deleteStringL) => {
-    setOnYes(() => (id) => {deleteRecipe(id);});
+    setOnYes(() => (id) => { return deleteRecipe(id);});
     setShowModal(deleteStringL);
   };
 

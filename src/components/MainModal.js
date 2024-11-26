@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {backend} from "./API";
 import "../css/MainModal.css"
 
@@ -7,8 +7,22 @@ const basename = (aString) => {
 };
 
 const MainModal = ({showModal, piece, setShowModal, onYes}) => {
+    const [deleteMsg, setDeleteMsg] = useState("Do you really want to delete?");
+    const [showYes, setShowYes] = useState(true);
+
     const close = () => {
-        setShowModal(false);
+        setShowModal("false");
+        setShowYes(true);
+    };
+
+    const onClickYes = () => {
+        const result = onYes(parseInt(showModal.substring(6)));
+        if (!result) {
+            setShowYes(false);
+            setDeleteMsg("Failed to delete glaze recipe.");
+        } else {
+            close();
+        }
     };
 
     return (
@@ -37,8 +51,8 @@ const MainModal = ({showModal, piece, setShowModal, onYes}) => {
                             <p id="close" className="pointer" onClick={close}>&times;</p>
                         </div>
                         <div>
-                            <p>Do you really want to delete?</p>
-                            <button onClick={() => {onYes(parseInt(showModal.substring(6)));}}>Yes</button>
+                            <p>{deleteMsg}</p>
+                            {showYes && <button onClick={() => {onClickYes()}}>Yes</button>}
                         </div>
                     </section>
                   </div>

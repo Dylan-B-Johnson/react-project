@@ -25,6 +25,8 @@ const GlazeEdits = ({glazeEdits, setGlazeEdits, setOnYes, setShowModal}) => {
                         cone={glaze.cone}
                         setOnYes={setOnYes}
                         setShowModal={setShowModal}
+                        setGlazeEdits={setGlazeEdits}
+                        glazeEdits={glazeEdits}
                     />
                 ))
             }
