@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {backend} from "./API";
+import EditGlazeModal from "./EditGlazeModal.js";
 import "../css/MainModal.css"
 
 const basename = (aString) => {
    return aString.split('/').reverse()[0];
 };
 
-const MainModal = ({showModal, piece, setShowModal, onYes}) => {
+const MainModal = ({showModal, piece, setShowModal, onYes, glazeId, glazes, setGlazes}) => {
     const [deleteMsg, setDeleteMsg] = useState("Do you really want to delete?");
     const [showYes, setShowYes] = useState(true);
 
@@ -53,6 +54,20 @@ const MainModal = ({showModal, piece, setShowModal, onYes}) => {
                         <div>
                             <p>{deleteMsg}</p>
                             {showYes && <button onClick={() => {onClickYes()}}>Yes</button>}
+                        </div>
+                    </section>
+                  </div>
+                </div>) 
+            }
+            {showModal == "editGlaze" && (
+                <div id="main-modal">
+                  <div id="modal-child" className="placcard vertical-center">
+                    <section>
+                        <div className="columns-all">
+                            <p id="close" className="pointer" onClick={close}>&times;</p>
+                        </div>
+                        <div id="edit-glaze-modal">
+                            <EditGlazeModal glazeId={glazeId} glazes={glazes} setGlazes={setGlazes}  close={close}/>
                         </div>
                     </section>
                   </div>

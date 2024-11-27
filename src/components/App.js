@@ -13,6 +13,8 @@ import MainModal from "./MainModal.js";
 const App = () => {
   const [showModal, setShowModal] = useState("");
   const [piece, setPiece] = useState(null);
+  const [glazeEdits, setGlazeEdits] = useState([]);
+  const [glazeEditId, setGlazeEditId] = useState(-1);
   const [onYes, setOnYes] = useState(() => {
   });
 
@@ -30,6 +32,9 @@ const App = () => {
         showModal={showModal}
         setShowModal={setShowModal}
         onYes={onYes}
+        glazes={glazeEdits}
+        setGlazes={setGlazeEdits}
+        glazeId={glazeEditId}
       />
       <div id="all-content">
             <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -41,7 +46,7 @@ const App = () => {
                   <Route path="gallery" element={<Gallery pieceOnClick={pieceOnClick}/>}/>
                   <Route path="glazes" element={<Glazes />}/>
                   <Route path="edit-gallery" element={<EditGallery />}/>
-                  <Route path="edit-glazes" element={<EditGlazes setOnYes={setOnYes} setShowModal={setShowModal}/>}/>
+                  <Route path="edit-glazes" element={<EditGlazes setOnYes={setOnYes} setShowModal={setShowModal} glazes={glazeEdits} setGlazes={setGlazeEdits} setGlazeEditId={setGlazeEditId}/>}/>
                   <Route path="edit-users" element={<EditUsers/>}/>
                 </Route>
               </Routes>

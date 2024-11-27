@@ -4,18 +4,17 @@ import "../css/EditGlazes.css";
 import "../css/AddGlaze.css";
 import React, {useState} from "react";
 
-const EditGlazes = ({setOnYes, setShowModal}) => {
+const EditGlazes = ({setOnYes, setShowModal, glazes, setGlazes, setGlazeEditId}) => {
     const [showAddGlaze, setShowAddGlaze] = useState(false);
-    const [glazeEdits, setGlazeEdits] = useState([]);
     const getMaxIdx = () => {
         let max = -1;
-        glazeEdits.forEach((i) => {
+        glazes.forEach((i) => {
             max = i._id > max ? i._id : max;
         });
         return max;
     };
     const showNewRecipe = (recipe) => {
-        setGlazeEdits((vals)=>[...vals, recipe]);
+        setGlazes((vals)=>[...vals, recipe]);
     };
     return (
         <div id="remaining-content" className="remaining-content columns center-columns-horizontal">
@@ -26,7 +25,7 @@ const EditGlazes = ({setOnYes, setShowModal}) => {
                 {showAddGlaze && <AddGlaze setShow={setShowAddGlaze} getMaxIdx={getMaxIdx} showNewRecipe={showNewRecipe}/>}
             </div>
             <div id="remaining-content-child" className="columns-all three center-columns-horizontal  wrap">
-                <GlazeEdits glazeEdits={glazeEdits} setShowModal={setShowModal} setGlazeEdits={setGlazeEdits} setOnYes={setOnYes}/>
+                <GlazeEdits glazeEdits={glazes} setShowModal={setShowModal} setGlazeEdits={setGlazes} setOnYes={setOnYes} setGlazeEditId={setGlazeEditId}/>
             </div>
         </div>
     );

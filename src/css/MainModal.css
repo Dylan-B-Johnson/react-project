@@ -7,14 +7,14 @@
     z-index: 100;
 } 
 
-#modal-child { 
-    position: fixed; 
-    background-color: var(--really-light-grey); 
-    top: 50%; 
-    left: 50%; 
-    -ms-transform: translate(-50%, -50%); 
-    transform: translate(-50%, -50%);
-} 
+#edit-glaze-modal {
+    overflow-y: auto;
+    max-height: 95vh;
+}
+
+#update-btn {
+    margin-bottom: 5px;
+}
 
 #modal-child section {
     padding: 5px;
@@ -32,4 +32,23 @@
     fontSize: 37px;
     width: fit-content;
     left: calc(100% - 20px - 12.29px);
+}
+
+#modal-child { 
+    width: 95%;
+    height: 100%;
+}
+
+@media only screen and (min-width:687px) {
+    #modal-child { 
+	min-width: 600px;
+	width: auto;
+	height: auto;
+	position: fixed; 
+	background-color: var(--really-light-grey); 
+	top: 50%; 
+	left: 50%; 
+	-ms-transform: translate(-50%, -50%); 
+	transform: translate(-50%, -50%);
+    }
 }
