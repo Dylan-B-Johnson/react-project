@@ -1,9 +1,9 @@
 const EditWork = ({year, image}) => {
   return (
-    <div class="placcard">
+    <div className="placcard">
         <p>{year}</p>
-        <img class="contain" src={image}/>
-        <div class="delete-button">
+        <img className="contain" src={image}/>
+        <div className="delete-button">
             <a href="#"><h3>Delete</h3></a>
         </div>
     </div>

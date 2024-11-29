@@ -5,13 +5,13 @@ import "../css/AddGlaze.css";
 
 const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
   const [inputs, setInputs] = useState({"materials": [], "amounts": []});
-  const [materials, setMaterials] = useState([0]);
+  const [materialsLen, setMaterials] = useState([0]);
   const [result, setResult] = useState("");
   const [imageUploaded, setImageUploaded] = useState(false);
 
   useEffect(() => {
-    const mats = JSON.parse(JSON.stringify(inputs.materials));
-    const amnts = JSON.parse(JSON.stringify(inputs.amounts));
+    const mats = [];
+    const amnts = [];
     glazes.forEach((glaze) => {
       if (glaze._id == glazeId) {
         glaze.recipe.forEach((recipeItem) => {
@@ -26,9 +26,11 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
           credit: glaze.credit,
           cone: glaze.cone
         }));
-        setInputs((vals) => ({...vals, materials:mats, amounts:amnts}));
+        setInputs(vals => ({...vals, materials:mats, amounts:amnts}));
+        console.log(mats);
         for (let i = 0; i < mats.length - 1; i++) {
-          addIngredient();
+          addIngredient(true);
+          console.log(i);
         }
       }
     });
@@ -108,24 +110,28 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
 
   const removeIngredient = () => {
     const mats = JSON.parse(JSON.stringify(inputs.materials));
-    mats[materials.length - 1] = "";
+    mats[materialsLen.length - 1] = "";
     const amnts = JSON.parse(JSON.stringify(inputs.amounts));
-    amnts[materials.length - 1] = "";
+    amnts[materialsLen.length - 1] = "";
     setInputs((vals) => ({
       ...vals, materials:mats, amounts:amnts
     }));
-    const newMats = JSON.parse(JSON.stringify(materials));
+    const newMats = JSON.parse(JSON.stringify(materialsLen));
     newMats.pop();
+    console.log("removeIngredient");
     setMaterials(newMats);
   };
 
-  const addIngredient = () => {
-    const lastNum = materials[materials.length - 1];
+  const addIngredient = (extant) => {
+    const lastNum = materialsLen[materialsLen.length - 1];
     if (lastNum == 19)
       return;
-    setMaterials(materials => [...materials, lastNum + 1]);
-    inputs.materials.push("");
-    inputs.amounts.push("");
+    console.log("addIngredient");
+    if (!extant) {
+      setMaterials(materials => [...materials, lastNum + 1]);
+      inputs.materials.push("");
+      inputs.amounts.push("");
+    }
   };
 
   return (
@@ -151,10 +157,10 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
           <input type="file" id="recipe-add-img" name="image" accept="image/*" onChange={handleImageChange}/>
         </div>
         <div className="edit-glaze-button">
-          <a href="#" onClick={addIngredient}><h3>Add Ingredient</h3></a>
-          {materials.length > 1 && <a href="#" onClick={removeIngredient}><h3>Remove Ingredient</h3></a>}
+          <a href="#" onClick={() => {addIngredient(false);}}><h3>Add Ingredient</h3></a>
+          {materialsLen.length > 1 && <a href="#" onClick={removeIngredient}><h3>Remove Ingredient</h3></a>}
         </div>
-        {materials.map((materialNum) => (
+        {materialsLen.map((materialNum) => (
           <Ingredient key={materialNum} materialNum = {materialNum} inputs = {inputs} handleChange={handleChangeMaterials}/>
         ))}
         <div>

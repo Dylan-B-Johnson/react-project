@@ -3,8 +3,8 @@ import GlazesComponent from "../components/Glazes.js"
 
 const Glazes = () => {
     return (
-        <div id="remaining-content" class="remaining-content columns center-columns-horizontal">
-            <div id="remaining-content-child" class="columns-all center-columns-horizontal  wrap">
+        <div id="remaining-content" className="remaining-content columns center-columns-horizontal">
+            <div id="remaining-content-child" className="columns-all center-columns-horizontal  wrap">
                 <GlazesComponent />
             </div>
         </div>
