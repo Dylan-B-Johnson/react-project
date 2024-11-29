@@ -108,7 +108,7 @@ const AddGlaze = ({setShow, showNewRecipe, getMaxIdx}) => {
         </div>
         <div className="edit-glaze-button">
           <a href="#" onClick={addIngredient}><h3>Add Ingredient</h3></a>
-          {materials.length > 1 && <a href="javascript:void(0)" onClick={removeIngredient}><h3>Remove Ingredient</h3></a>}
+          {materials.length > 1 && <a href="#" onClick={removeIngredient}><h3>Remove Ingredient</h3></a>}
         </div>
         {materials.map((materialNum) => (
           <Ingredient key={materialNum} materialNum = {materialNum} inputs = {inputs} handleChange={handleChangeMaterials}/>

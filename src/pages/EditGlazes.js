@@ -6,16 +6,21 @@ import React, {useState} from "react";
 
 const EditGlazes = ({setOnYes, setShowModal, glazes, setGlazes, setGlazeEditId}) => {
     const [showAddGlaze, setShowAddGlaze] = useState(false);
+
     const getMaxIdx = () => {
-        let max = -1;
-        glazes.forEach((i) => {
-            max = i._id > max ? i._id : max;
-        });
-        return max;
+            let max = -1;
+            glazes.forEach((recipe) => {
+                    if (recipe._id > max) {
+                            max = recipe._id;
+                    }
+            });
+            return max;
     };
+
     const showNewRecipe = (recipe) => {
         setGlazes((vals)=>[...vals, recipe]);
     };
+
     return (
         <div id="remaining-content" className="remaining-content columns center-columns-horizontal">
             <div id="left-pane-about" className="one">

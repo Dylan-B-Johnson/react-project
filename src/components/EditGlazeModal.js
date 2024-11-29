@@ -27,7 +27,9 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
           cone: glaze.cone
         }));
         setInputs((vals) => ({...vals, materials:mats, amounts:amnts}));
-        mats.forEach((mat) => {addIngredient();});
+        for (let i = 0; i < mats.length - 1; i++) {
+          addIngredient();
+        }
       }
     });
   },[]);
@@ -67,7 +69,9 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
     }
     fixedJSON.credit = fixedJSON.credit == null ? "" : fixedJSON.credit;
     fixedJSON.link = fixedJSON.link == null ? "" : fixedJSON.link;
-    fixedJSON.image = URL.createObjectURL(inputs.image);
+    if (imageUploaded) {
+      fixedJSON.image = URL.createObjectURL(inputs.image);
+    } 
     const response = await fetch(api + "/recipes/" + inputs._id,{
       method:"PUT",
       body:formData
@@ -94,7 +98,7 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
         glaze.recipe = updatedGlaze.recipe;
       }
     });
-    setInputs(newGlazes);
+    setGlazes(newGlazes);
   };
 
   const handleImageChange = (e) => {
@@ -144,11 +148,11 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
         </div>
         <div>
           <label htmlFor="recipe-add-img">Upload Image:</label>
-          <input type="file" id="recipe-add-img" name="image" accept="image/*" required onChange={handleImageChange}/>
+          <input type="file" id="recipe-add-img" name="image" accept="image/*" onChange={handleImageChange}/>
         </div>
         <div className="edit-glaze-button">
           <a href="#" onClick={addIngredient}><h3>Add Ingredient</h3></a>
-          {materials.length > 1 && <a href="javascript:void(0)" onClick={removeIngredient}><h3>Remove Ingredient</h3></a>}
+          {materials.length > 1 && <a href="#" onClick={removeIngredient}><h3>Remove Ingredient</h3></a>}
         </div>
         {materials.map((materialNum) => (
           <Ingredient key={materialNum} materialNum = {materialNum} inputs = {inputs} handleChange={handleChangeMaterials}/>
