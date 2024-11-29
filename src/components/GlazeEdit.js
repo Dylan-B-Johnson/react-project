@@ -35,6 +35,22 @@ const GlazeEdit = ({_id, image, recipe, name, link, credit, cone,
           <img src={image} className="one contain"/>
         </div>
         <div className="one table-div">
+          <p className="cone">Cone: {cone}</p>
+          <table>
+            <tbody>
+              <tr>
+                <th>Material</th>
+                <th>Amount</th>
+              </tr>
+              {recipe.map((row) => (
+                <tr key={row.material + row.amount}>
+                  <td>{row.material}</td>
+                  <td>{row.amount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {credit != "" && <a target="_blank" className={link == "" ? "no-text-decor" : ""} href={link == "" ? undefined : link}>{credit}</a>}
           <div className="delete-button columns-all">
               <a href="#" onClick={() => {onDelete(deleteString);}}><h3>Delete</h3></a>
               <div className="spacer"></div>

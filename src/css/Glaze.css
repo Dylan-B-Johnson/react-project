@@ -51,6 +51,11 @@
     margin-right: auto;
 } 
 
+.placcard-glazes img {
+    width: 200px !important;
+    height: 210px !important;
+}
+
 @media only screen and (min-width: 435px){ 
     .mobile-div .table-div  { 
 	width: 100%;
