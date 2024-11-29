@@ -27,10 +27,8 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
           cone: glaze.cone
         }));
         setInputs(vals => ({...vals, materials:mats, amounts:amnts}));
-        console.log(mats);
         for (let i = 0; i < mats.length - 1; i++) {
           addIngredient(true);
-          console.log(i);
         }
       }
     });
@@ -118,7 +116,6 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
     }));
     const newMats = JSON.parse(JSON.stringify(materialsLen));
     newMats.pop();
-    console.log("removeIngredient");
     setMaterials(newMats);
   };
 
@@ -126,9 +123,8 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
     const lastNum = materialsLen[materialsLen.length - 1];
     if (lastNum == 19)
       return;
-    console.log("addIngredient");
+    setMaterials(materials => [...materials, lastNum + 1]);
     if (!extant) {
-      setMaterials(materials => [...materials, lastNum + 1]);
       inputs.materials.push("");
       inputs.amounts.push("");
     }
@@ -160,8 +156,8 @@ const EditGlazeModal = ({glazeId, glazes, setGlazes, close}) => {
           <a href="#" onClick={() => {addIngredient(false);}}><h3>Add Ingredient</h3></a>
           {materialsLen.length > 1 && <a href="#" onClick={removeIngredient}><h3>Remove Ingredient</h3></a>}
         </div>
-        {materialsLen.map((materialNum) => (
-          <Ingredient key={materialNum} materialNum = {materialNum} inputs = {inputs} handleChange={handleChangeMaterials}/>
+        {materialsLen.map((matNum, index) => (
+          <Ingredient key={index} materialNum = {index} inputs = {inputs} handleChange={handleChangeMaterials}/>
         ))}
         <div>
           <label htmlFor="recipe-add-credit">Credit:</label>
