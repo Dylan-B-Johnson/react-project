@@ -4,14 +4,14 @@ import "../css/Glaze.css";
 
 const GlazeEdit = ({_id, image, recipe, name, link, credit, cone, 
     setOnYes, setShowModal, setGlazeEdits, glazeEdits, setGlazeEditId}) => {
-  const deleteString = `delete${_id}`;
+  const deleteString = `delete` + _id;
 
   const deleteRecipe = async(id) => {
-    const response = await fetch(api + `/recipes/${id}`, {
+    const response = await fetch(api + `/recipes/${_id}`, {
       method: "DELETE"
     });
     if (response.status === 200) {
-      setGlazeEdits(glazeEdits.filter((i) => i._id != id));
+      setGlazeEdits(glazeEdits.filter((i) => i._id != _id));
       return true;
     }
     return false;
