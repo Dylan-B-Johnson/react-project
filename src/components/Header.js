@@ -17,7 +17,6 @@ const Header = ({hamburgerOnClick}) => {
                                 <div></div>
                                 <div></div>
                             </div>
-                            <Login />
                             <Link to="/about" id="main-title-a" className="relative"><h1 id="main-title">Sally Brogden</h1></Link>
                         </section>
                         <MainNav />

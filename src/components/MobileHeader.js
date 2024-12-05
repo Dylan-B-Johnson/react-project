@@ -9,10 +9,7 @@ const Header = ({showMobileNav}) => {
                 <li><Link to="/about"><h2 className="link">About</h2></Link></li>
                 <li><Link to="/gallery"><h2 className="link">Gallery</h2></Link></li>
                 <li><Link to="/glazes"><h2 className="link">Glazes</h2></Link></li>
-                <li><Link to="/edit-about"><h2 className="link">Edit About</h2></Link></li>
-                <li><Link to="/edit-gallery"><h2 className="link">Edit Gallery</h2></Link></li>
                 <li><Link to="/edit-glazes"><h2 className="link">Edit Glazes</h2></Link></li>
-                <li><Link to="/edit-users"><h2 className="link">Edit Users</h2></Link></li>
             </ul>
         </nav>
     );
