@@ -61,7 +61,7 @@ const MainModal = ({showModal, piece, setShowModal, onYes, glazeId, glazes, setG
             }
             {showModal == "editGlaze" && (
                 <div id="main-modal">
-                  <div id="modal-child" className="placcard vertical-center">
+                  <div id="modal-child-edit modal-child" className="placcard vertical-center">
                     <section>
                         <div className="columns-all">
                             <p id="close" className="pointer" onClick={close}>&times;</p>
